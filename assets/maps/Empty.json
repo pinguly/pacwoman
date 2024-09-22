@@ -1,0 +1,120 @@
+{
+    "name": "Empty",
+    "pacman": {
+        "speed": 0,
+        "start": {"chart": 1, "row": 7, "column": 12},
+        "direction": "right"
+    },
+    "ghosts": [
+        {
+            "name": "blinky",
+            "speed": 1,
+            "start": {"chart": 3, "row": 5, "column": 9},
+            "home": {"chart": 3, "row": 2, "column": 2},
+            "direction": "right"
+        },
+        {
+            "name": "inky",
+            "speed": 1,
+            "start": {"chart": 3, "row": 16, "column": 3},
+            "home": {"chart": 2, "row": 2, "column": 2},
+            "direction": "right"
+        }
+    ],
+    "phases": [
+        {"mode": "chase", "duration": 20}
+    ],
+    "timing": {
+        "frighten":     8.0,
+        "dot-blink":    0.5
+    },
+    "charts": [
+        {
+            "id":    1,
+            "left":  3,
+            "right": 2,
+            "up":    2,
+            "down":  3,
+            "x": 0.0,
+            "y": 0.0,
+            "cells": [
+                "..................",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ", 
+                "  o          o    ",
+                "                  ", 
+                "             X    ",  
+                "             X    ",  
+                "             X    ",  
+                "             X    ",
+                "                  ", 
+                "                  ",
+                "                  ", 
+                "                  ", 
+                "                  ", 
+                "                  "
+            ]
+        },
+        {
+            "id":    2,
+            "left":  1,
+            "right": 3,
+            "up":    3,
+            "down":  1,
+            "x": 1.0,
+            "y": 0.0,
+            "cells": [
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ", 
+                "                  ",
+                "                  ", 
+                "                  ",  
+                "                  ",  
+                "                  ",  
+                "                  ",
+                "                  ", 
+                "                  ",
+                "                  ", 
+                "                  ", 
+                "                  ", 
+                "                  "
+            ]
+        },
+        {
+            "id":   3,
+            "left":  2,
+            "right": 1,
+            "up":    1,
+            "down":  2,
+            "x": 1.0,
+            "y": 1.0,
+            "cells": [
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ",
+                "                  ", 
+                "                  ",
+                "                  ", 
+                "                  ",  
+                "                  ",  
+                "                  ",  
+                "                  ",
+                "                  ", 
+                "                  ",
+                "                  ", 
+                "                  ", 
+                "                  ", 
+                "                  "
+            ]
+        }
+    ]
+}

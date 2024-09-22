@@ -1,0 +1,141 @@
+{
+    "name": "Labyrinth",
+    "pacman": {
+        "speed": 4.5,
+        "start": {"chart": 1, "row": 2, "column": 2},
+        "direction": "down"
+    },
+    "ghosts": [
+        {
+            "name": "blinky",
+            "speed": 4.4,
+            "start": {"chart": 3, "row": 2, "column": 9},
+            "home": {"chart": 3, "row": 2, "column": 2},
+            "direction": "right"
+        },
+        {
+            "name": "inky",
+            "speed": 4.4,
+            "start": {"chart": 1, "row": 2, "column": 9},
+            "home": {"chart": 2, "row": 2, "column": 2},
+            "direction": "right"
+        },
+        {
+            "name": "pinky",
+            "speed": 4.4,
+            "start": {"chart": 2, "row": 2, "column": 9},
+            "home": {"chart": 1, "row": 2, "column": 2},
+            "direction": "right"
+        },
+        {
+            "name": "clyde",
+            "speed": 4.4,
+            "start": {"chart": 2, "row": 10, "column": 9},
+            "home": {"chart": 1, "row": 3, "column": 2},
+            "direction": "right"
+        }
+    ],
+    "phases": [
+        {"mode": "scatter", "duration": 7},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 7},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 5},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 5},
+        {"mode": "chase", "duration": 20}
+    ],
+    "timing": {
+        "frighten":     8.0,
+        "dot-blink":    0.5
+    },
+    "charts": [
+        {
+            "id":    1,
+            "left":  3,
+            "right": 2,
+            "up":    2,
+            "down":  3,
+            "x": 0.0,
+            "y": 0.0,
+            "cells": [
+                "XX.XXXXXXXXXXXX.XX",
+                "X.................",
+                "X.XXX.XXXXXX.XXX.X",
+                "X.X X.XXXXXX.XXX.X",
+                "X.XXX.X...........",
+                "X.....X.XXX.XX.X.X", 
+                "XXXXX.X..oX.XX.X.X",
+                "......XXXXX.XX.X..",
+                "XXXXX.X   X.XX.X.X", 
+                "    X.X   X......X", 
+                "    X.X   X.XX.XXX", 
+                "    X.X   X.XX.X  ", 
+                "XXXXX.XXXXX.XX.XXX", 
+                "..................",
+                "X.XXX.X.XXX.XXXX.X", 
+                "X.XXX.X.XXX.XXXX.X", 
+                "X................X", 
+                "XXXXXXXXX.XXXXXXXX"
+            ]
+        },
+        {
+            "id":    2,
+            "left":  1,
+            "right": 3,
+            "up":    3,
+            "down":  1,
+            "x": 1.0,
+            "y": 0.0,
+            "cells": [
+                "XXXX.XXXXXXXX.XXXX",
+                ".................X",
+                "X.XXX.XXXXXX.XXX.X",
+                "X.X X.X    X.XXX.X",
+                " .XXX.XXXXXX......",
+                " .....X......X.X.X", 
+                "XXXXX...XXX.XX.X.X",
+                "......XXXXX.XX.X.X",
+                "XXXXX.XXXXX.XX.X.X", 
+                "    X.XXo.........", 
+                "    X.XX.XX.XX.XXX", 
+                "    X....XX.XX.XXX", 
+                "XXXXX.XXXXX.XX.XXX", 
+                "..................",
+                "X.XXX.X.XoX.XXXX.X", 
+                "X.XXX.X.XXX.XXXX.X", 
+                "X................X", 
+                "XX.XXXXXXXXXXXX.XX"
+            ]
+        },
+        {
+            "id":   3,
+            "left":  2,
+            "right": 1,
+            "up":    1,
+            "down":  2,
+            "x": 1.0,
+            "y": 1.0,
+            "cells": [
+                "XXXXXXXXX.XXXXXXXX",  
+                "X................X",
+                "X.XXX.XXXXXX.XXX.X",
+                "X.X X.XXXXXX.XXX.X",
+                "..XXX.X..........X",
+                "X.....X.X.X.XX.X.X", 
+                "XXXXX.X.o.X.XX.X.X",
+                "X.....XXXXX.XX.X..",
+                "X.XXX.XXXXX.XX.X.X", 
+                "..X X...f........X", 
+                "X.X X.XXXXX.XX.X.X", 
+                "X.X X.XX....XX.X.X", 
+                "X.XXX.XXoXX.XX.X.X", 
+                "..................",
+                "X.XXX.X.XXX.XXXX.X", 
+                "X.XoX.X.XXX.XXXX.X", 
+                "X................X", 
+                "XXXX.XXXXXXXX.XXXX"
+            ]
+        }
+    ]
+}

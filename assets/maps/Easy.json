@@ -1,0 +1,98 @@
+{   
+    "name": "Easy",
+    "pacman": {
+        "speed": 4.5,
+        "start": {"chart": 2, "row": 6, "column": 14},
+        "direction": "left"
+    },
+    "ghosts": [
+        {
+            "name": "inky",
+            "speed": 2.5,
+            "start": {"chart": 1, "row": 6, "column": 10},
+            "home": {"chart": 2, "row": 2, "column": 2},
+            "direction": "left"
+        },
+        {
+            "name": "pinky",
+            "speed": 2.5,
+            "start": {"chart": 2, "row": 16, "column": 6},
+            "home": {"chart": 1, "row": 2, "column": 2},
+            "direction": "right"
+        }
+    ],
+    "phases": [
+        {"mode": "scatter", "duration": 7},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 7},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 5},
+        {"mode": "chase", "duration": 20},
+        {"mode": "scatter", "duration": 5},
+        {"mode": "chase", "duration": 20}
+    ],
+    "timing": {
+        "frighten":     15.0,
+        "dot-blink":    0.5
+    },
+    "charts": [
+        {
+            "id":    1,
+            "left":  2,
+            "right": 2,
+            "up":    2,
+            "down":  2,
+            "x": 1.0,
+            "y": 1.0,
+            "cells": [
+                " X.XX.XXXXXX.XX.X ",
+                "XX.XX.XXXXXX.XX.XX",
+                "...XX........XX...",
+                "XX.XX.XXXXXX.XX.XX",
+                "XX.XX.XXXXXX....X ", 
+                "..........XX.XX.X ",
+                "X.XXXXXXX.XX.XX.XX",
+                "X.X     X....XXo..", 
+                "X.XXXXXXX.XXXXXXXX", 
+                "......f...XXXXXXXX", 
+                "XXXX.XXXX.....XX..", 
+                "XXXX.XXXX.XXX.XX.X", 
+                "..........X X....X",
+                "XXXXXXXXX.X X.XXXX", 
+                "XXXXXXXXX.XXX.XXXX", 
+                "..oXX.............", 
+                "XX.XX.XX.XXXXXX.XX",
+                " X.XX.XX.XXXXXX.X " 
+            ]
+        },
+        {
+            "id":   2,
+            "left":  1,
+            "right": 1,
+            "up":    1,
+            "down":  1,
+            "x": 1.0,
+            "y": 0.0,
+            "cells": [
+                " X.XX.XX........X ",
+                "XX.XX.XX..XXXXX.XX",
+                "..........X   X...",
+                "XX.XXXXXX.X   X.XX",
+                " X.XXXXXX.XXXXX.XX", 
+                " X.XXo............",
+                "XX.XX.XXXXX.XX.XXX",
+                "...XX.XXXXX.XX.X  ", 
+                "XX.......XXfXX.XXX", 
+                "XX.XX.XX.XX.XX....", 
+                "...XX.XX.XX.XX.XXX", 
+                "XX.XX.XX.XX.XX.XXX", 
+                "XX....XX.......o..",
+                "XX.XXXXXXXXX.XXXXX", 
+                "XX.XXXXXXXXX.XXXXX", 
+                "..................", 
+                "XX.XX.XXXXXX.XX.XX", 
+                " X.XX.XXXXXX.XX.X "
+            ]
+        }
+    ]
+}
