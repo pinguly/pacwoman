@@ -90,6 +90,9 @@ foreign import javascript "(() => events.shift())"
 foreign import javascript "(() => Math.random())"
     js_random :: IO Float
 
+foreign import javascript "(($1) => $1.slice())"
+    js_slice :: Float32Array -> IO Float32Array
+
 
 
 
@@ -108,6 +111,8 @@ data GlobalState = GlobalState
   , globStaticMaze  :: Float32Array 
   , globStaticItems :: Float32Array
   , globStaticBlink :: Float32Array
+  , globStaticItems' :: Float32Array
+  , globStaticBlink' :: Float32Array
   , globStaticICells :: Map.Map Cell (Int, Int)
   , globStaticBCells :: Map.Map Cell (Int, Int)
   }
@@ -263,6 +268,10 @@ instance MonadUI (StateT GlobalState JSIO) where
         audio <- globAudio <$> get
         font  <- globFont  <$> get
         staticMaze  <- globStaticMaze <$> get
+        when (lvlphase == RESPAWN) $ do 
+            staticItemsCpy <- liftIO . js_slice =<< globStaticItems' <$> get
+            staticBlinkCpy <- liftIO . js_slice =<< globStaticBlink' <$> get
+            modify $ \state -> state {globStaticItems = staticItemsCpy, globStaticBlink = staticBlinkCpy}
         staticItems <- globStaticItems <$> get
         staticBlink <- globStaticBlink <$> get
         staticICells <- globStaticICells <$> get
@@ -383,6 +392,8 @@ instance MonadUI (StateT GlobalState JSIO) where
             blinkLens = map (length . snd) blinkData
             itemMap = Map.fromList $ zip (map fst itemData) $ zip (scanl (+) 0 itemLens) itemLens
             blinkMap = Map.fromList $ zip (map fst blinkData) $ zip (scanl (+) 0 blinkLens) blinkLens
+        arrayItems' <- liftIO $ js_slice arrayItems
+        arrayBlink' <- liftIO $ js_slice arrayBlink
         modify $ \state -> state 
           { globTime = t
           , globDeltaTime = 0
@@ -391,6 +402,8 @@ instance MonadUI (StateT GlobalState JSIO) where
           , globStaticMaze = arrayMaze
           , globStaticItems = arrayItems
           , globStaticBlink = arrayBlink
+          , globStaticItems' = arrayItems'
+          , globStaticBlink' = arrayBlink'
           , globStaticICells = itemMap
           , globStaticBCells = blinkMap
           }
@@ -430,7 +443,7 @@ initState = do
     t <- liftIO js_date_now
     array <- liftIO $ toFloat32Array []
     return $ 
-        GlobalState context config levels t 0 Nothing sheet audio sounds font array array array Map.empty Map.empty
+        GlobalState context config levels t 0 Nothing sheet audio sounds font array array array array array Map.empty Map.empty
 
 
 type UI = StateT GlobalState JSIO
