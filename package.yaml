@@ -1,0 +1,76 @@
+name: pacwoman
+version: 1.0.0.0
+github: pinguly/pacwoman
+license: BSD-3-Clause
+author: "Nicolas Faroß, Yvonne Neuy"
+maintainer: "Nicolas Faroß"
+copyright: "2023 Nicolas Faroß, Yvonne Neuy"
+
+extra-source-files:
+- README.md
+- LICENSE
+
+# data-files:
+# - assets/*
+
+description: Please see the README on GitHub at <https://github.com/pinguly/pacwoman>
+
+dependencies:
+- aeson
+- array
+- base >= 4.7 && < 5
+- containers
+- lens
+- mtl
+- vector
+
+library:
+  source-dirs: src
+  dependencies:
+  - text
+  - bytestring
+
+executables:
+  pacwoman-glut:
+    main: Main.hs
+    source-dirs: app/GLUT
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -fno-ghci-sandbox
+    - -O3
+    dependencies:
+    - GLUT
+    - JuicyPixels
+    - OpenAL
+    - OpenGLRaw
+    - OpenGL
+    - ALUT
+    - time
+    - transformers
+    - freetype2
+    - MonadRandom
+    - pacwoman
+  pacwoman-webgl:
+    main: Main.hs
+    source-dirs: app/Browser
+    ghc-options:
+    - -O3
+    - -XStrict
+    dependencies:
+    - transformers
+    - pacwoman
+
+ghc-options:
+- -Wall
+- -Wcompat
+- -Widentities
+- -Wincomplete-record-updates
+- -Wincomplete-uni-patterns
+- -Wmissing-export-lists
+- -Wmissing-home-modules
+- -Wpartial-fields
+- -Wredundant-constraints
+- -Wunused-packages
+# - -Wmissing-deriving-strategies
