@@ -268,7 +268,7 @@ instance MonadUI (StateT GlobalState JSIO) where
         audio <- globAudio <$> get
         font  <- globFont  <$> get
         staticMaze  <- globStaticMaze <$> get
-        when (lvlphase == RESPAWN) $ do 
+        when (lvlphase == WINNING 18) $ do 
             staticItemsCpy <- liftIO . js_slice =<< globStaticItems' <$> get
             staticBlinkCpy <- liftIO . js_slice =<< globStaticBlink' <$> get
             modify $ \state -> state {globStaticItems = staticItemsCpy, globStaticBlink = staticBlinkCpy}
